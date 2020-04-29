@@ -11,6 +11,7 @@ export default class App extends Component {
         wholesomeMemesPageDisplay: "none",
         dankMemesPageDisplay: "none",
         edgyMemesPageDisplay: "none",
+        edgyMemesWarningPageDisplay: "none",
         normieMemesPageDisplay: "none",
         postPageDisplay: "none",
         accountPageDisplay: "none",
@@ -49,6 +50,7 @@ export default class App extends Component {
             dankMemesPageDisplay: "none",
             edgyMemesPageDisplay: "none",
             normieMemesPageDisplay: "none",
+            edgyMemesWarningPageDisplay: "none",
         }))
     );
     
@@ -61,6 +63,7 @@ export default class App extends Component {
             dankMemesPageDisplay: "none",
             edgyMemesPageDisplay: "none",
             normieMemesPageDisplay: "block",
+            edgyMemesWarningPageDisplay: "none",
         }))
     );
     
@@ -73,6 +76,7 @@ export default class App extends Component {
             dankMemesPageDisplay: "block",
             edgyMemesPageDisplay: "none",
             normieMemesPageDisplay: "none",
+            edgyMemesWarningPageDisplay: "none",
         }))
     );
     
@@ -83,8 +87,35 @@ export default class App extends Component {
             accountPageDisplay: "none",
             logoPageDisplay: "none",
             dankMemesPageDisplay: "none",
+            edgyMemesPageDisplay: "none",
+            normieMemesPageDisplay: "none",
+            edgyMemesWarningPageDisplay: "block",
+        }))
+    );
+
+handleYesEdgyMemesPagePress = () => (
+        this.setState(state => ({
+            wholesomeMemesPageDisplay: "none",
+            postPageDisplay: "none",
+            accountPageDisplay: "none",
+            logoPageDisplay: "none",
+            dankMemesPageDisplay: "none",
             edgyMemesPageDisplay: "block",
             normieMemesPageDisplay: "none",
+            edgyMemesWarningPageDisplay: "none",
+        }))
+    );
+    
+    handleNoEdgyMemesPagePress = () => (
+        this.setState(state => ({
+            wholesomeMemesPageDisplay: "block",
+            postPageDisplay: "none",
+            accountPageDisplay: "none",
+            logoPageDisplay: "none",
+            dankMemesPageDisplay: "none",
+            edgyMemesPageDisplay: "none",
+            normieMemesPageDisplay: "none",
+            edgyMemesWarningPageDisplay: "none",
         }))
     );
 
@@ -98,6 +129,7 @@ export default class App extends Component {
             dankMemesPageDisplay: "none",
             edgyMemesPageDisplay: "none",
             normieMemesPageDisplay: "none",
+            edgyMemesWarningPageDisplay: "none",
         }))
     );
 
@@ -111,6 +143,7 @@ export default class App extends Component {
             dankMemesPageDisplay: "none",
             edgyMemesPageDisplay: "none",
             normieMemesPageDisplay: "none",
+            edgyMemesWarningPageDisplay: "none",
         }))
     );
 
@@ -299,6 +332,28 @@ export default class App extends Component {
                             ))}
                         </ScrollView>
                     </View>
+                </View>
+                
+                <View style={{display: this.state.edgyMemesWarningPageDisplay}}>
+                 <Text style={styles.textbox}>
+                 Warning: This section may contain content that is NSFW or may be disturbing or highly offensive to some. Please verify that you are at least 18 years old before entering the section!
+                 </Text>
+                        <TouchableHighlight
+                        onPress={this.handleYesEdgyMemesPagePress}>
+                            <View style={styles.button}>
+                                <Text style={styles.buttonText}>
+                                    Yes,I am 18
+                                </Text>
+                            </View>
+                        </TouchableHighlight>
+                        <TouchableHighlight
+                        onPress={this.handleNoEdgyMemesPagePress}>
+                            <View style={styles.button}>
+                                <Text style={styles.buttonText}>
+                                    No,I'm a jit
+                                </Text>
+                            </View>
+                        </TouchableHighlight>
                 </View>
                 
                 <View style={{display: this.state.edgyMemesPageDisplay}}>
